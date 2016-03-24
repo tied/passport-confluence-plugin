@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) 2016, Inversoft Inc., All Rights Reserved
+ */
+savantVersion = "0.4.4"
+
+project(group: "com.inversoft.passport", name: "passport-confluence-plugin", version: "0.1.0", licenses: ["ApacheV2_0"]) {
+  workflow {
+    standard()
+  }
+
+  publishWorkflow {
+    subversion(repository: "http://svn.inversoft.org/savant")
+  }
+
+  publications {
+    main {
+      publication(name: "passport-confluence-plugin", type: "zip", file: "build/passport-confluence-plugin.zip")
+    }
+  }
+}
+
+// Plugins
+dependency = loadPlugin(id: "org.savantbuild.plugin:dependency:${savantVersion}")
+file = loadPlugin(id: "org.savantbuild.plugin:file:${savantVersion}")
+idea = loadPlugin(id: "org.savantbuild.plugin:idea:${savantVersion}")
+release = loadPlugin(id: "org.savantbuild.plugin:release-git:${savantVersion}")
+
+target(name: "clean", description: "Cleans build directory") {
+  file.prune(dir: "build")
+}
+
+target(name: "int", description: "Releases a local integration build of the project") {
+
+  dependency.integrate()
+}
+
+target(name: "idea", description: "Updates the IntelliJ IDEA module file") {
+  idea.iml()
+}
+
+target(name: "release", description: "Releases a full version of the project", dependsOn: ["int"]) {
+  release.release()
+}
