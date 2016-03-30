@@ -1,0 +1,27 @@
+<atlassian-plugin key="com.passport.plugin.adminui" name="passport-confluence-plugin" plugins-version="1">
+    <plugin-info>
+        <description>Confluence plugin that connects to Passport</description>
+        <version>1.0</version>
+        <vendor name="Inversoft" url="http://127.0.0.1" />
+    </plugin-info>
+
+    <web-resource name="Admin Web Resources" key="resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <resource type="download" name="admin.js" location="admin.js"/>
+    </web-resource>
+
+    <component-import key="userManager" interface="com.atlassian.sal.api.user.UserManager" />
+    <component-import key="loginUriProvider" interface="com.atlassian.sal.api.auth.LoginUriProvider" />
+    <component-import key="renderer" interface="com.atlassian.templaterenderer.velocity.one.six.VelocityTemplateRenderer" />
+
+    <servlet key="admin-servlet" class="com.passport.plugin.adminui.AdminServlet">
+        <url-pattern>/passport/admin</url-pattern>
+    </servlet>
+
+    <component-import key="pluginSettingsFactory" interface="com.atlassian.sal.api.pluginsettings.PluginSettingsFactory" />
+    <component-import key="transactionTemplate" interface="com.atlassian.sal.api.transaction.TransactionTemplate" />
+
+    <rest key="rest" path="/passport" version="1.0">
+        <description>Provides REST resources for the admin UI.</description>
+    </rest>
+</atlassian-plugin>

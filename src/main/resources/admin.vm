@@ -1,0 +1,33 @@
+<html>
+<head>
+    $webResourceManager.requireResource("com.atlassian.plugins.tutorial.xproduct-admin-ui-plugin:resources")
+    <title>Passport Settings</title>
+</head>
+<body>
+<form id="admin">
+    <div>
+        <label for="passport-frontend">Passport Frontend URI</label>
+        <input type="text" id="passport-frontend" name="passport-frontend">
+    </div>
+    <div>
+        <label for="passport-backend">Passport Backend URI</label>
+        <input type="passport-backend" id="passport-backend" name="passport-backend">
+    </div>
+    <div>
+        <label for="client-id">Client ID</label>
+        <input type="client-id" id="client-id" name="client-id">
+    </div>
+    <div>
+        <label for="client-secret">Client Secret</label>
+        <input type="client-secret" id="client-secret" name="client-secret">
+    </div>
+    <div>
+        <label for="api-key">API Key</label>
+        <input type="api-key" id="api-key" name="api-key">
+    </div>
+    <div>
+        <input type="submit" value="Save">
+    </div>
+</form>
+</body>
+</html>
