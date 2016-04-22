@@ -1,33 +1,34 @@
 <html>
 <head>
-    $webResourceManager.requireResource("com.atlassian.plugins.tutorial.xproduct-admin-ui-plugin:resources")
-    <title>Passport Settings</title>
+  <title>$i18n.getText("passport.admin.label")</title>
+  <meta name="decorator" content="atl.admin" />
+  $webResourceManager.requireResource("com.inversoft.passport.confluence:resources")
 </head>
 <body>
-<form id="admin">
-    <div>
-        <label for="passport-frontend">Passport Frontend URI</label>
-        <input type="text" id="passport-frontend" name="passport-frontend">
-    </div>
-    <div>
-        <label for="passport-backend">Passport Backend URI</label>
-        <input type="passport-backend" id="passport-backend" name="passport-backend">
-    </div>
-    <div>
-        <label for="client-id">Client ID</label>
-        <input type="client-id" id="client-id" name="client-id">
-    </div>
-    <div>
-        <label for="client-secret">Client Secret</label>
-        <input type="client-secret" id="client-secret" name="client-secret">
-    </div>
-    <div>
-        <label for="api-key">API Key</label>
-        <input type="api-key" id="api-key" name="api-key">
-    </div>
-    <div>
-        <input type="submit" value="Save">
-    </div>
+<form id="admin" class="aui">
+  <div class="field-group">
+    <label for="passport-frontend">$i18n.getText("passport.admin.passport-frontend.label")</label>
+    <input type="text" id="passport-frontend" name="passport-frontend">
+  </div>
+  <div class="field-group">
+    <label for="passport-backend">$i18n.getText("passport.admin.passport-backed.label")</label>
+    <input type="passport-backend" id="passport-backend" name="passport-backend">
+  </div>
+  <div class="field-group">
+    <label for="client-id">$i18n.getText("passport.admin.client-id.label")</label>
+    <input type="client-id" id="client-id" name="client-id">
+  </div>
+  <div class="field-group">
+    <label for="client-secret">$i18n.getText("passport.admin.client-secret.label")</label>
+    <input type="client-secret" id="client-secret" name="client-secret">
+  </div>
+  <div class="field-group">
+    <label for="api-key">$i18n.getText("passport.admin.api-key.label")</label>
+    <input type="api-key" id="api-key" name="api-key">
+  </div>
+  <div class="field-group">
+    <input type="submit" value="$i18n.getText("passport.admin.save.label")" class="button">
+  </div>
 </form>
 </body>
 </html>
